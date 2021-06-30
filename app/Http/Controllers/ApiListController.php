@@ -37,7 +37,7 @@ class ApiListController extends Controller
 
 
         $newTransactionLog = new TransactionLog();
-        $newTransactionLog->action = "api created";
+        $newTransactionLog->action = "api " . $newApi->name . " created";
         $newTransactionLog->user_id = Auth::user()->id;
         $newTransactionLog->api_list_id = $newApi->id;
         $newTransactionLog->save();
@@ -77,7 +77,7 @@ class ApiListController extends Controller
 
 
         $newTransactionLog = new TransactionLog();
-        $newTransactionLog->action = "api updated";
+        $newTransactionLog->action = "api " . $newApi->name . " updated";
         $newTransactionLog->user_id = Auth::user()->id;
         $newTransactionLog->api_list_id = $id;
         $newTransactionLog->save();
@@ -102,7 +102,7 @@ class ApiListController extends Controller
         $api->update();
 
         $newTransactionLog = new TransactionLog();
-        $newTransactionLog->action = "api deleted";
+        $newTransactionLog->action = "api " . $api->name . " deleted";
         $newTransactionLog->user_id = Auth::user()->id;
         $newTransactionLog->api_list_id = $id;
         $newTransactionLog->save();
